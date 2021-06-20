@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Fathers Day</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <img src="/images/image1.jpg" class="image1" alt="">
+        <div class="container-btn">
+            <button id="btn">Click me</button>
+        </div>
+        <main>Happy Fathers Day!</main>
+    </div>
+    <div class="image-gallery">
+        <h1 class="gallery-text">Image Gallery</h1>
+        <img src="/images/image2.jpg" alt="">
+        <img src="/images/image3.jpg" alt="">
+        <img src="/images/image4.jpg" alt="">
+        <img src="/images/image5.jpg" alt="">
+        <img class="image5" src="/images/image6.jpg" alt="">
+    </div>
+    <footer>&copy; Raghava Krishna</footer>
+    <script>
+        document.getElementById('btn').addEventListener('click', () => {
+            document.querySelector('main').classList.add('animated-text');//you could add .toggle('animated-text') too, but if we click it mid animation, it bluntly stops..
+            document.querySelector('.image1').classList.add('animated-border');//you could add .toggle('animated-text') too, but if we click it mid animation, it bluntly stops..
+            setTimeout(() => {
+                document.querySelector('main').classList.remove('animated-text');
+                document.querySelector('.image1').classList.remove('animated-border');
+            }, 6000)
+        })
+        window.addEventListener('scroll', () => {
+            var y = window.pageYOffset;
+            if (y>=400) {
+                document.querySelector('.gallery-text').classList.add('gallery');
+            }
+            else{
+                document.querySelector('.gallery-text').classList.remove('gallery');
+            }
+        })
+        document.querySelector('.gallery-text').addEventListener('click', () => {
+            document.querySelector('.gallery-text').classList.toggle('gallery');
+        })
+    </script>
+</body>
+</html>

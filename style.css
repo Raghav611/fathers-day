@@ -1,0 +1,243 @@
+@import url('https://fonts.googleapis.com/css2?family=Staatliches&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+:root{
+    font-size: 18px;
+    --body-background: linear-gradient(to right, #1a1a1a, #1f0000);
+}
+body{
+    height: auto;
+    background-image: var(--body-background);
+}
+.container{
+    height: 100vh;
+    display: grid;
+    grid-template-rows: 2fr 100px 1fr;
+    row-gap: 10px;
+    overflow-y: hidden;
+}
+.container main{
+    color: white;
+    font-family: 'Staatliches', sans-serif;
+    font-size: 3rem;
+    justify-self: center;
+    word-spacing: .25rem;
+    user-select: none;
+}
+.animated-text{
+    animation: entry 5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+.animated-border{
+    animation: border-animate 5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes border-animate {
+    0%{
+        box-shadow: 1px 1px 100px rgba(255, 255, 255, 0.1),
+    1px -1px 100px rgba(255, 255, 255, 0.1),
+    -1px 1px 100px rgba(255, 255, 255, 0.1),
+    -1px -1px 100px rgba(255, 255, 255, 0.1);
+    }
+    25%{
+        box-shadow: 1px 1px 20px rgba(255, 255, 255, 0.1),
+    1px -1px 50px rgba(255, 255, 255, 0.1),
+    -1px 1px 50px rgba(255, 255, 255, 0.1),
+    -1px -1px 50px rgba(255, 255, 255, 0.1);
+    }
+    50%{
+        box-shadow: 1px 1px 70px rgba(255, 255, 255, 0.1),
+    1px -1px 70px rgba(255, 255, 255, 0.1),
+    -1px 1px 70px rgba(255, 255, 255, 0.1),
+    -1px -1px 70px rgba(255, 255, 255, 0.1);
+    }
+    75%{
+        box-shadow: 1px 1px 90px rgba(255, 255, 255, 0.1),
+    1px -1px 90px rgba(255, 255, 255, 0.1),
+    -1px 1px 90px rgba(255, 255, 255, 0.1),
+    -1px -1px 90px rgba(255, 255, 255, 0.1);
+    }
+    100%{
+        box-shadow: none;
+    }
+}
+
+@keyframes entry {
+    0%{
+        transform: translateX(10%) rotate(45deg);
+        opacity: .5;
+    }
+    25%{
+        transform: translateX(5%) rotate(0deg);
+        opacity: .85;
+    }
+    50%{
+        transform: translateX(-1%) rotate(-45deg);
+        opacity: .65;
+    }
+    100%{
+        transform: translateX(0%) rotate(0deg);
+        opacity: 1;
+    }
+}
+
+.container img{
+    width: 15rem;
+    justify-self: center;
+    align-self: center;
+    border-radius: 50%;
+}
+.container img:hover{
+    cursor: pointer;
+}
+.container .container-btn{
+    width: 100vw;
+    display: flex;
+    align-self: center;
+    justify-self: center;
+    align-items: center;
+    justify-content: center;
+}
+button{
+    padding: 10px 20px;
+    border-radius: 2px;
+    border: none;
+    background: white;
+    color: #272727;
+    font-size: .85rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 2px;
+    font-family: 'Staatliches', sans-serif;
+}
+.image-gallery{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 100px repeat(3, 1fr);
+    gap: 50px;
+    padding: 1%;
+    background: #141414;
+}
+.image-gallery>*{
+    height: 300px;
+    justify-self: center;
+    align-self: center;
+    border-radius: 20px;
+}
+.image5 {
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+.image-gallery h1{
+    grid-column-start: 1;
+    grid-column-end: 3;
+    height: auto;
+    font-family: 'Staatliches', sans-serif;
+    color: white;
+    font-size: 2.5rem;
+    font-weight: lighter;
+    letter-spacing: 2px;
+    word-spacing: 5px;
+    user-select: none;
+    opacity: 0.5;
+    transform: translateX(100px);
+}
+.gallery{
+    animation: text-animate 2s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+@keyframes text-animate {
+    0%{
+        opacity: 0;
+        transform: translateX(100px);
+    }
+    50%{
+        opacity: .6;
+        transform: translateX(60px);
+    }
+    60%{
+        transform: translateX(-50px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+footer{
+    height: 50px;
+    background: #272727;
+    color: white;
+    display: flex;
+    align-items: flex-end;
+    font-family: 'Staatliches',sans-serif;
+    letter-spacing: 2px;
+    word-spacing: 5px;
+    user-select: none;
+}
+
+
+
+
+
+
+
+
+
+
+@media only screen and (max-width: 750px) {
+    .container{
+        grid-template-rows: 1fr 100px 1fr;
+    }
+    .container main{
+        font-size: 2.5rem;
+    }
+    .image-gallery{
+        grid-template-rows: 100px repeat(4, 1fr);
+        grid-template-columns: 1fr 1fr;
+        padding: 10px;
+        gap: 10px;
+        row-gap: 20px;
+    }
+    .image-gallery>*{
+        height: 170px;
+    }
+    .image-gallery h1{
+        grid-column-start: 1;
+        grid-column-end: 3;
+        font-family: 'Staatliches', sans-serif;
+        color: white;
+        height: auto;
+        font-size: 2rem;
+    }
+    @keyframes border-animate {
+        0%{
+            box-shadow: 1px 1px 50px rgba(255, 255, 255, 0.1),
+        1px -1px 50px rgba(255, 255, 255, 0.1),
+        -1px 1px 50px rgba(255, 255, 255, 0.1),
+        -1px -1px 50px rgba(255, 255, 255, 0.1);
+        }
+        25%{
+            box-shadow: 1px 1px 30px rgba(255, 255, 255, 0.1),
+        1px -1px 30px rgba(255, 255, 255, 0.1),
+        -1px 1px 30px rgba(255, 255, 255, 0.1),
+        -1px -1px 30px rgba(255, 255, 255, 0.1);
+        }
+        50%{
+            box-shadow: 1px 1px 40px rgba(255, 255, 255, 0.1),
+        1px -1px 40px rgba(255, 255, 255, 0.1),
+        -1px 1px 40px rgba(255, 255, 255, 0.1),
+        -1px -1px 40px rgba(255, 255, 255, 0.1);
+        }
+        75%{
+            box-shadow: 1px 1px 150px rgba(255, 255, 255, 0.1),
+        1px -1px 60px rgba(255, 255, 255, 0.1),
+        -1px 1px 60px rgba(255, 255, 255, 0.1),
+        -1px -1px 60px rgba(255, 255, 255, 0.1);
+        }
+        100%{
+            box-shadow: none;
+        }
+    }
+}
